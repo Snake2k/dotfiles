@@ -179,6 +179,11 @@ mode "resize" {
         bindsym $mod+r mode "default"
 }
 
+# Multimedia Keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
 bindsym $mod+r mode "resize"
 
 bindsym $mod+Ctrl+l exec i3lock-fancy-rapid 5 3
@@ -194,8 +199,9 @@ client.placeholder          #101010     #101010     #FFFFFF     #FF0000
 # finds out, if available)
 bar {
     colors {
-        background #000000AA
+        background #220000AA
         focused_workspace #FF0000 #AA0000 #000000
+        inactive_workspace #000000  #000000 #AA0000
     }
     position top
     status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
